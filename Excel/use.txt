@@ -1,23 +1,23 @@
     private void handleExportExcel(HttpServletResponse response, List<New_ListOutResult> pRvalue) throws Exception {
         ExcelData data = new ExcelData();
-        data.setName("ºÏÀí»¯½¨ÒéÊı¾İ");
+        data.setName("åˆç†åŒ–å»ºè®®æ•°æ®");
         List<String> titles = new ArrayList();
-        titles.add("Ìá°¸ÈË£¨¹¤ºÅ£©");
-        titles.add("Ö÷Ìâ");
-        titles.add("ÉóÅú×´Ì¬");
-        titles.add("²¿ÃÅ");
-        titles.add("OAÁ÷³Ì±àºÅ");
-        titles.add("´´½¨Ê±¼ä");
-        titles.add("Àà±ğ");
-        titles.add("Ìá°¸ÀàĞÍ");
-        titles.add("ÎÊÌâÃèÊö");
-        titles.add("¾ö²ß½¨Òé");
-        titles.add("Ìá°¸ÈË»ı·Ö");
-        titles.add("Ìá°¸ÊÕÒæ");
-        titles.add("ÊµÊ©ÈË¹¤ºÅ");
-        titles.add("ÊµÊ©ÈËĞÕÃû");
-        titles.add("ÊµÊ©ÈË»ı·Ö");
-        titles.add("ÊÇ·ñÓÅĞãÌá°¸");
+        titles.add("ææ¡ˆäººï¼ˆå·¥å·ï¼‰");
+        titles.add("ä¸»é¢˜");
+        titles.add("å®¡æ‰¹çŠ¶æ€");
+        titles.add("éƒ¨é—¨");
+        titles.add("OAæµç¨‹ç¼–å·");
+        titles.add("åˆ›å»ºæ—¶é—´");
+        titles.add("ç±»åˆ«");
+        titles.add("ææ¡ˆç±»å‹");
+        titles.add("é—®é¢˜æè¿°");
+        titles.add("å†³ç­–å»ºè®®");
+        titles.add("ææ¡ˆäººç§¯åˆ†");
+        titles.add("ææ¡ˆæ”¶ç›Š");
+        titles.add("å®æ–½äººå·¥å·");
+        titles.add("å®æ–½äººå§“å");
+        titles.add("å®æ–½äººç§¯åˆ†");
+        titles.add("æ˜¯å¦ä¼˜ç§€ææ¡ˆ");
         data.setTitles(titles);
         List<List<Object>> rows = new ArrayList();
         String time;
@@ -34,79 +34,79 @@
             if (null != fListOutResult.getType())
                 switch (Integer.parseInt(fListOutResult.getType())) {
                     case 1:
-                        row.add("¹¤×°");
+                        row.add("å·¥è£…");
                         break;
                     case 2:
-                        row.add("Éè±¸");
+                        row.add("è®¾å¤‡");
                         break;
                     case 3:
-                        row.add("ÏßÌåÆ½ºâ");
+                        row.add("çº¿ä½“å¹³è¡¡");
                         break;
                     case 4:
-                        row.add("Á÷³Ì");
+                        row.add("æµç¨‹");
                         break;
                     case 5:
-                        row.add("±êÊ¶");
+                        row.add("æ ‡è¯†");
                         break;
                     case 6:
-                        row.add("Ë®¡¢µç¡¢Æø×ÊÔ´½ÚÊ¡");
+                        row.add("æ°´ã€ç”µã€æ°”èµ„æºèŠ‚çœ");
                         break;
                     case 7:
-                        row.add("ÈËÁ÷¡¢ÎïÁ÷ÓÅ»¯");
+                        row.add("äººæµã€ç‰©æµä¼˜åŒ–");
                         break;
                     case 8:
-                        row.add("ÏÖ³É»·¾³");
+                        row.add("ç°æˆç¯å¢ƒ");
                         break;
                     case 9:
-                        row.add("²Ù×÷·½·¨ÓÅ»¯");
+                        row.add("æ“ä½œæ–¹æ³•ä¼˜åŒ–");
                         break;
                     case 10:
-                        row.add("×÷Òµ±ê×¼²»ºÏÀí");
+                        row.add("ä½œä¸šæ ‡å‡†ä¸åˆç†");
                         break;
                     case 11:
-                        row.add("ÏàËÆÎïÁÏ·À´ô");
+                        row.add("ç›¸ä¼¼ç‰©æ–™é˜²å‘†");
                         break;
                     case 12:
-                        row.add("°ü×°·½Ê½");
+                        row.add("åŒ…è£…æ–¹å¼");
                         break;
                     case 13:
-                        row.add("²ÄÁÏ±ä¸ü");
+                        row.add("ææ–™å˜æ›´");
                         break;
                     case 14:
-                        row.add("È¡ÏûÎïÁÏ");
+                        row.add("å–æ¶ˆç‰©æ–™");
                         break;
                     case 15:
-                        row.add("BOM¸ÄÉÆ");
+                        row.add("BOMæ”¹å–„");
                         break;
                     case 16:
-                        row.add("¸£Àû¸ÄÉÆ");
+                        row.add("ç¦åˆ©æ”¹å–„");
                         break;
                     case 17:
-                        row.add("¹«Ë¾ĞÎÏóÌáÉı");
+                        row.add("å…¬å¸å½¢è±¡æå‡");
                         break;
                     case 18:
-                        row.add("°²È«×÷Òµ");
+                        row.add("å®‰å…¨ä½œä¸š");
                         break;
                     case 19:
-                        row.add("°²È«±êÊ¶");
+                        row.add("å®‰å…¨æ ‡è¯†");
                         break;
                     default:
-                        row.add("¹¤×°");
+                        row.add("å·¥è£…");
                         break;
                 }
             if (null != fListOutResult.getProposalType())
                 switch (fListOutResult.getProposalType()) {
                     case 1:
-                        row.add("·ÇÌåÏµÁ÷³ÌÀà½¨Òé");
+                        row.add("éä½“ç³»æµç¨‹ç±»å»ºè®®");
                         break;
                     case 2:
-                        row.add("ÖªÊ¶²úÈ¨Àà½¨Òé");
+                        row.add("çŸ¥è¯†äº§æƒç±»å»ºè®®");
                         break;
                     case 3:
-                        row.add("ÌåÏµÁ÷³ÌÀà½¨Òé");
+                        row.add("ä½“ç³»æµç¨‹ç±»å»ºè®®");
                         break;
                     default:
-                        row.add("·ÇÌåÏµÁ÷³ÌÀà½¨Òé");
+                        row.add("éä½“ç³»æµç¨‹ç±»å»ºè®®");
                         break;
                 }
             row.add(fListOutResult.getPresentSituation());
@@ -118,14 +118,14 @@
             row.add(fListOutResult.getImplementIntegral());
 
             if (fListOutResult.getGood().equals(1))
-                row.add("ÊÇ");
+                row.add("æ˜¯");
             else
-                row.add("·ñ");
+                row.add("å¦");
             rows.add(row);
         }
         data.setRows(rows);
 
         SimpleDateFormat fdate = new SimpleDateFormat("yyyy-MM-dd");
-        String fileName = "ºÏÀí»¯½¨ÒéÊı¾İ-" + fdate.format(new Date()) + ".xls";
+        String fileName = "åˆç†åŒ–å»ºè®®æ•°æ®-" + fdate.format(new Date()) + ".xls";
         ExcelUtils.exportExcel(response, fileName, data);
     }
