@@ -1,0 +1,131 @@
+    private void handleExportExcel(HttpServletResponse response, List<New_ListOutResult> pRvalue) throws Exception {
+        ExcelData data = new ExcelData();
+        data.setName("合理化建议数据");
+        List<String> titles = new ArrayList();
+        titles.add("提案人（工号）");
+        titles.add("主题");
+        titles.add("审批状态");
+        titles.add("部门");
+        titles.add("OA流程编号");
+        titles.add("创建时间");
+        titles.add("类别");
+        titles.add("提案类型");
+        titles.add("问题描述");
+        titles.add("决策建议");
+        titles.add("提案人积分");
+        titles.add("提案收益");
+        titles.add("实施人工号");
+        titles.add("实施人姓名");
+        titles.add("实施人积分");
+        titles.add("是否优秀提案");
+        data.setTitles(titles);
+        List<List<Object>> rows = new ArrayList();
+        String time;
+        sdf = new SimpleDateFormat("yyyy-MM-dd");
+        for (New_ListOutResult fListOutResult : pRvalue) {
+            List<Object> row = new ArrayList();
+            row.add(fListOutResult.getOwnerName() + "(" + fListOutResult.getOwner() + ")");
+            row.add(fListOutResult.getTheme());
+            row.add(fListOutResult.getStatus());
+            row.add(fListOutResult.getSectionName());
+            row.add(fListOutResult.getOaProposalId());
+            time = sdf.format(fListOutResult.getCreateTime());
+            row.add(time);
+            if (null != fListOutResult.getType())
+                switch (Integer.parseInt(fListOutResult.getType())) {
+                    case 1:
+                        row.add("工装");
+                        break;
+                    case 2:
+                        row.add("设备");
+                        break;
+                    case 3:
+                        row.add("线体平衡");
+                        break;
+                    case 4:
+                        row.add("流程");
+                        break;
+                    case 5:
+                        row.add("标识");
+                        break;
+                    case 6:
+                        row.add("水、电、气资源节省");
+                        break;
+                    case 7:
+                        row.add("人流、物流优化");
+                        break;
+                    case 8:
+                        row.add("现成环境");
+                        break;
+                    case 9:
+                        row.add("操作方法优化");
+                        break;
+                    case 10:
+                        row.add("作业标准不合理");
+                        break;
+                    case 11:
+                        row.add("相似物料防呆");
+                        break;
+                    case 12:
+                        row.add("包装方式");
+                        break;
+                    case 13:
+                        row.add("材料变更");
+                        break;
+                    case 14:
+                        row.add("取消物料");
+                        break;
+                    case 15:
+                        row.add("BOM改善");
+                        break;
+                    case 16:
+                        row.add("福利改善");
+                        break;
+                    case 17:
+                        row.add("公司形象提升");
+                        break;
+                    case 18:
+                        row.add("安全作业");
+                        break;
+                    case 19:
+                        row.add("安全标识");
+                        break;
+                    default:
+                        row.add("工装");
+                        break;
+                }
+            if (null != fListOutResult.getProposalType())
+                switch (fListOutResult.getProposalType()) {
+                    case 1:
+                        row.add("非体系流程类建议");
+                        break;
+                    case 2:
+                        row.add("知识产权类建议");
+                        break;
+                    case 3:
+                        row.add("体系流程类建议");
+                        break;
+                    default:
+                        row.add("非体系流程类建议");
+                        break;
+                }
+            row.add(fListOutResult.getPresentSituation());
+            row.add(fListOutResult.getExamineOpinion());
+            row.add(fListOutResult.getIntegral());
+            row.add(fListOutResult.getBenefit());
+            row.add(fListOutResult.getImplementEmpno());
+            row.add(fListOutResult.getImplementName());
+            row.add(fListOutResult.getImplementIntegral());
+
+            if (fListOutResult.getGood().equals(1))
+                row.add("是");
+            else
+                row.add("否");
+            rows.add(row);
+        }
+        data.setRows(rows);
+
+        SimpleDateFormat fdate = new SimpleDateFormat("yyyy-MM-dd");
+        String fileName = "合理化建议数据-" + fdate.format(new Date()) + ".xls";
+        ExcelUtils.exportExcel(response, fileName, data);
+    }
