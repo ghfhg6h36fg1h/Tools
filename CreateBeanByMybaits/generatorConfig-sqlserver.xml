@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动-->
+    <classPathEntry location="E:/mybatis/sqljdbc42.jar" />
+
+    <context id="context2"  targetRuntime="MyBatis3">
+
+        <!--<commentGenerator>
+            <!– 去除自动生成的注释 –>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>-->
+        <!-- 是否生成注释 去除自动生成的注释-->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 数据库连接配置 -->
+        <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                        connectionURL="jdbc:sqlserver://192.168.1.157;DatabaseName=PortalDEV"
+                        userId="sa"
+                        password="nader123!" />
+
+        <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--配置生成的实体包
+            targetPackage：生成的实体包位置，默认存放在src目录下
+            targetProject：目标工程名
+         -->
+         <!-- 实体的生成 -->
+        <javaModelGenerator targetPackage="com.liangxin.platform.common.entity.advise.generate.pt"
+                            targetProject="E:/Platform/platform/src/main/java" />
+
+        <!--xmlMapper文件的生成-->
+        <sqlMapGenerator targetPackage="com.liangxin.platform.mapper.advise.generate.pt" targetProject="E:/Platform/platform/src/main/resources" />
+        <!--生成Dao类存放位置,mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.liangxin.platform.mapper.advise.generate.pt" targetProject="E:/Platform/platform/src/main/java">
+        </javaClientGenerator>
+                 <!--生成对应表及类名-->
+        <!-- 配置表
+            schema：不用填写
+            tableName: 表名
+            enableCountByExample、enableSelectByExample、enableDeleteByExample、enableUpdateByExample、selectByExampleQueryId：
+            去除自动生成的例子
+        -->
+        <table schema="" tableName="New_PROPOSAL_" domainObjectName="New_PROPOSAL" enableCountByExample="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false" >
+        </table>
+
+    </context>
+</generatorConfiguration>
